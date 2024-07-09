@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<canvas id="myCanvas" width="800" height="550" style="border:1px solid #d3d3d3;">
+Your browser does not support the HTML5 canvas tag.</canvas>
+
+<script type="application/javascript">
+//grid width and height
+var bw = 32*24;
+var bh = 480;
+//padding around grid
+var p = 0;
+//size of canvas
+var cw = bw + (p*2) ;
+var ch = bh + (p*2) ;
+
+
+
+var context = document.getElementById("myCanvas").getContext("2d");
+
+function drawBoard(){
+    for (var x = 0; x <= bw; x += 32) {
+        context.moveTo(0.5 + x + p, p);
+        context.lineTo(0.5 + x + p, bh + p);
+    }
+
+
+    for (var x = 0; x <= bh; x += 32) {
+        context.moveTo(p, 0.5 + x + p);
+        context.lineTo(bw + p, 0.5 + x + p);
+    }
+
+    context.strokeStyle = "black";
+    context.stroke();
+}
+
+drawBoard();
+
+////////////////
+///////
+
+var ctx=context;
+
+// Create gradient
+var grd=ctx.createLinearGradient(0,0,200,0);
+grd.addColorStop(0,"black");
+
+
+// Fill with gradient
+ctx.fillStyle=grd;
+ctx.border = 8;
+
+var centerX = (32*24)/2; 
+var centerY = 480/2; 
+var CAMERA_HEIGHT = 780;
+var CAMERA_HEIGHT = 480;
+t343twidth = 32;
+
+x = centerX - t343twidth*5 ;
+y = centerY / 1.7;
+ctx.fillRect(x ,y ,32,32); // bomb
+
+///////bomb target
+for(i=0;i< 1 ;i++)
+{
+grd.addColorStop(0,"green"); 
+ctx.fillStyle=grd;
+    switch(i){
+case 0:
+x  = centerX + t343twidth*5 ;
+y = centerY / 1.7 + t343twidth*5;
+break;
+
+}
+ctx.fillRect(x ,y ,32,32); // bom target
+}
+////
+
+
+
+
+
+
+for(i=0;i< 2 ;i++)
+{
+grd.addColorStop(0,"blue");
+
+
+ctx.fillStyle=grd;
+
+    switch(i){
+case 0:
+x = centerX + t343twidth*5 ;
+y = centerY / 1.7;
+break;
+            
+case 1:
+x = centerX - t343twidth*5 ;
+y = centerY / 1.7 + t343twidth*5;
+break;
+            
+}            
+            
+ 
+    
+
+
+grd.addColorStop(0,"black");
+ctx.fillStyle=grd;
+ctx.fillText(i,x,y); 
+
+grd.addColorStop(0,"red");
+ctx.fillStyle=grd;
+ctx.fillRect(x,y,32,32);
+
+}
+
+</script>
+<img src="test.png" />
+</body>
+</html>

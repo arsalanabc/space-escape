@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<canvas id="myCanvas" width="990" height="600" style="border:1px solid #d3d3d3;">
+Your browser does not support the HTML5 canvas tag.</canvas>
+
+<script type="application/javascript">
+//grid width and height
+var bw = 990;
+var bh = 600;
+//padding around grid
+var p = 0;
+//size of canvas
+var cw = bw + (p*2) ;
+var ch = bh + (p*2) ;
+
+ 	
+array_col = new Array();
+array_row = new Array();
+
+ 
+
+var context = document.getElementById("myCanvas").getContext("2d");
+
+function drawBoard(){
+    for (var x = 0; x <= bw; x += 32) {
+        context.moveTo(0.5 + x + p, p);
+        context.lineTo(0.5 + x + p, bh + p);
+    }
+
+
+    for (var x = 0; x <= bh; x += 32) {
+        context.moveTo(p, 0.5 + x + p);
+        context.lineTo(bw + p, 0.5 + x + p);
+    }
+
+    context.strokeStyle = "black";
+    context.stroke();
+}
+
+drawBoard();
+
+var k = new Image();
+k.src = "test.png";
+ctx.drawImage(k, 0, 0,   700, 500);
+////////////////
+///////
+
+var c=document.getElementById("myCanvas");
+var ctx=context;
+
+lost = new Image();
+lost.src = "test.png";
+ctx.drawImage(lost, 0, 0,   30, 30);
+ 
+
+// Create gradient
+var grd=ctx.createLinearGradient(0,0,200,0);
+grd.addColorStop(0,"black");
+
+
+// Fill with gradient
+ctx.fillStyle=grd;
+ctx.border = 8;
+
+var centerX = (bw)/2; 
+var centerY = bh/2; 
+var CAMERA_HEIGHT = bw;
+var CAMERA_HEIGHT = bh;
+t343twidth = 32;
+
+grd.addColorStop(0,"black");
+ctx.fillStyle=grd;
+ctx.fillRect(centerX,centerY, 10,10); 
+
+
+x = centerX - t343twidth*7 ;   
+y = centerY + t343twidth;
+ctx.fillRect(x ,y ,32,32); // bomb black
+
+///////bomb target
+for(i=0;i< 1 ;i++)
+{
+grd.addColorStop(0,"green"); 
+ctx.fillStyle=grd;
+    switch(i){
+case 0:
+x = centerX + t343twidth ;   
+	y = centerY -  t343twidth*4;
+	
+break;
+
+}
+ctx.fillRect(x ,y ,32,32); // bom target
+}
+////
+
+///////arrows
+for(i=0;i< 1 ;i++)
+{
+grd.addColorStop(0,"purple"); 
+ctx.fillStyle=grd;
+    switch(i){
+case 0:
+	x = centerX  ;   
+	y = centerY + t343twidth;
+	
+break;
+
+}
+ctx.fillRect(x ,y ,32,32); // arrows
+}
+////
+
+
+
+///////teleporter
+for(i=0;i< 2 ;i++)
+{
+grd.addColorStop(0,"blue"); 
+ctx.fillStyle=grd;
+    switch(i){
+case 0:
+x = centerX - t343twidth ;   
+y = centerY + t343twidth*6;
+break;
+
+case 1:
+	x = centerX + t343twidth*6 ;   
+	y = centerY - t343twidth*4;
+break;
+            
+}
+//ctx.fillRect(x ,y ,32,32); // teleporter
+}
+////
+    
+    
+//boxmaker();	
+	
+	
+grd.addColorStop(0,"red");
+ctx.fillStyle=grd;
+
+
+
+
+
+for(i=0;i< 1 ;i++) // blocks
+{
+// make sure to scale 
+
+switch(i) {
+	case 0:
+	x = centerX + t343twidth*5;   
+	y = centerY + t343twidth;
+	break;
+	
+	
+
+
+}
+
+
+
+grd.addColorStop(0,"red");
+ctx.fillStyle=grd;
+ctx.fillRect(x,y,32,32);
+
+grd.addColorStop(0,"black");
+ctx.fillStyle=grd;
+ctx.fillText(i,x+15,y+14); 
+
+}
+
+
+function boxmaker()
+{
+	for (c = 0; c< 29; c++){ // col
+
+//x = centerX - t343twidth*(c-14);   
+//y = centerY - t343twidth*9;
+
+	
+	//if(c == 3 || c == 5|| c == 8 || c == 14 || c == 22 || c == 24 || c == 26  ) continue;
+	
+	grd.addColorStop(0,"yellow");
+ctx.fillStyle=grd;
+ctx.fillRect(x,y,32,32);
+
+grd.addColorStop(0,"black");
+ctx.fillStyle=grd;
+ctx.fillText(c,x+15,y+14); 
+	
+
+	
+//array_col = new Array(1,2,3,5);
+//for (r = 0; r < array_row.length; r++){ // row
+
+for (r = 0; r< 17; r++){ // row
+
+x = centerX - t343twidth*(c);   
+y = centerY - t343twidth*(0);
+	//if(r == 3 || r == 5|| r == 8 || r == 14 || r == 22 || r == 24 || r == 26  ) continue;
+	
+	grd.addColorStop(0,"yellow");
+ctx.fillStyle=grd;
+ctx.fillRect(x,y,32,32);
+
+grd.addColorStop(0,"black");
+ctx.fillStyle=grd;
+ctx.fillText(r,x+15,y+14); 
+ctx.fillText(c,x+15,y+26); 
+
+
+
+
+
+	}// row
+	
+	}// col
+	}
+
+
+
+
+
+
+</script>
+<img src="test.png" />
+</body>
+</html>

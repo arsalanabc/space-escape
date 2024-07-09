@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<canvas id="myCanvas" width="800" height="550" style="border:1px solid #d3d3d3;">
+Your browser does not support the HTML5 canvas tag.</canvas>
+
+<script type="application/javascript">
+//grid width and height
+var bw = 800;
+var bh = 550;
+//padding around grid
+var p = 0;
+//size of canvas
+var cw = bw + (p*2) ;
+var ch = bh + (p*2) ;
+
+ 
+ 
+
+var context = document.getElementById("myCanvas").getContext("2d");
+
+function drawBoard(){
+    for (var x = 0; x <= bw; x += 32) {
+        context.moveTo(0.5 + x + p, p);
+        context.lineTo(0.5 + x + p, bh + p);
+    }
+
+
+    for (var x = 0; x <= bh; x += 32) {
+        context.moveTo(p, 0.5 + x + p);
+        context.lineTo(bw + p, 0.5 + x + p);
+    }
+
+    context.strokeStyle = "black";
+    context.stroke();
+}
+
+drawBoard();
+
+////////////////
+///////
+
+var c=document.getElementById("myCanvas");
+var ctx=context;
+
+lost = new Image();
+lost.src = "test.png";
+ctx.drawImage(lost, 0, 0,   30, 30);
+ 
+
+// Create gradient
+var grd=ctx.createLinearGradient(0,0,200,0);
+grd.addColorStop(0,"black");
+
+
+// Fill with gradient
+ctx.fillStyle=grd;
+ctx.border = 8;
+
+var centerX = (bw)/2; 
+var centerY = bh/2; 
+var CAMERA_HEIGHT = bw;
+var CAMERA_HEIGHT = bh;
+t343twidth = 32;
+
+x = centerX - t343twidth;;
+y = centerY - t343twidth*2;
+ctx.fillRect(x ,y ,32,32); // bomb black
+
+///////bomb target
+for(i=0;i< 1 ;i++)
+{
+grd.addColorStop(0,"green"); 
+ctx.fillStyle=grd;
+    switch(i){
+case 0:
+x = centerX - t343twidth*2;
+y = centerY - t343twidth*2;
+break;
+
+}
+ctx.fillRect(x ,y ,32,32); // bom target
+}
+////
+
+
+///////teleporter
+for(i=0;i< 0 ;i++)
+{
+grd.addColorStop(0,"blue"); 
+ctx.fillStyle=grd;
+    switch(i){
+case 0:
+x = centerX /8 + t343twidth*7 ;
+y = centerY / 5 + t343twidth*3;
+break;
+
+case 1:
+x = centerX /8 + t343twidth*14 ;
+y = centerY / 5 + t343twidth*9;
+break;
+            
+}
+ctx.fillRect(x ,y ,32,32); // teleporter
+}
+////
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+grd.addColorStop(0,"red");
+ctx.fillStyle=grd;
+
+
+for(i=0;i< 36 ;i++)
+{
+
+
+    switch(i){
+case 0:
+x = centerX - t343twidth;
+y = centerY +t343twidth*7;
+break;
+            
+case 1:
+x = centerX - t343twidth;
+y = centerY +t343twidth*7;
+break;
+
+case 2:
+x = centerX + t343twidth*9;
+y = centerY +t343twidth*6;
+break;
+
+case 3:
+x = centerX + t343twidth*9;
+y = centerY +t343twidth*5;
+break;
+    
+case 4:
+x = centerX + t343twidth*9;
+y = centerY +t343twidth*4;
+break;
+  
+case 5:
+x = centerX + t343twidth*7;
+y = centerY +t343twidth*4;
+break;  
+    
+case 6:
+x = centerX + t343twidth*6;
+y = centerY +t343twidth*4;
+break;  
+
+case 7:
+x = centerX + t343twidth*5;
+y = centerY +t343twidth*4;
+break;  
+
+case 8:
+x = centerX + t343twidth*7;
+y = centerY +t343twidth*3;
+break; 
+
+case 9:
+x = centerX + t343twidth*3;
+y = centerY +t343twidth*3;
+break;
+
+case 10:
+x = centerX + t343twidth;
+y = centerY +t343twidth*4;
+break;
+
+case 11:
+x = centerX ;
+y = centerY +t343twidth*4;
+break;
+
+case 12:
+x = centerX + t343twidth*3;
+y = centerY - t343twidth;
+break;
+
+case 13:
+x = centerX - t343twidth;
+y = centerY - t343twidth*6;
+break;
+
+
+case 14:
+x = centerX ;
+y = centerY - t343twidth*6;
+break;
+
+case 15:
+x = centerX - t343twidth*2;
+y = centerY - t343twidth*6;
+break;
+
+case 16:
+x = centerX - t343twidth*6;
+y = centerY ;
+break;
+
+case 17:
+x = centerX - t343twidth*7;
+y = centerY ;
+break;
+
+case 18:
+x = centerX - t343twidth*7;
+y = centerY - t343twidth*3;
+break;
+
+case 19:
+x = centerX - t343twidth*8;
+y = centerY - t343twidth*3;
+break;
+
+case 20:
+x = centerX - t343twidth*9;
+y = centerY - t343twidth*3;
+break;
+
+
+case 21:
+x = centerX - t343twidth*9;
+y = centerY - t343twidth*4;
+break;
+
+case 22:
+x = centerX - t343twidth*9;
+y = centerY - t343twidth*0;
+break;
+
+case 23:
+x = centerX - t343twidth*9;
+y = centerY + t343twidth;
+break;
+
+case 24:
+x = centerX - t343twidth*9;
+y = centerY + t343twidth*2;
+break;
+
+case 25:
+x = centerX - t343twidth*9;
+y = centerY + t343twidth*3;
+break;
+
+case 26:
+x = centerX - t343twidth*10;
+y = centerY + t343twidth*2;
+break;
+
+case 27:
+x = centerX - t343twidth*9;
+y = centerY + t343twidth*4;
+break;
+
+case 28:
+x = centerX - t343twidth*11;
+y = centerY - t343twidth*2;
+break;
+
+case 29:
+x = centerX - t343twidth*11;
+y = centerY - t343twidth;
+break;
+
+case 30:
+x = centerX + t343twidth*8;
+y = centerY - t343twidth*6;
+break;
+
+case 31:
+x = centerX + t343twidth*4;
+y = centerY - t343twidth*7;
+break;
+
+case 32:
+x = centerX + t343twidth*5;
+y = centerY - t343twidth;
+break;
+
+case 33:
+x = centerX + t343twidth*6;
+y = centerY - t343twidth*2;
+break;  
+
+case 34:
+x = centerX + t343twidth*5;
+y = centerY - t343twidth*2;
+break;  
+
+case 35:
+x = centerX + t343twidth*7;
+y = centerY - t343twidth*2;
+break;
+
+
+    }            
+            
+ 
+    
+grd.addColorStop(0,"red");
+ctx.fillStyle=grd;
+ctx.fillRect(x,y,32,32);
+
+
+grd.addColorStop(0,"black");
+ctx.fillStyle=grd;
+ctx.fillText(i,x+16,y+14);
+
+
+}</script>
+<img src="test.png" />
+</body>
+</html>

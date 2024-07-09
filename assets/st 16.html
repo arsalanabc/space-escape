@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<canvas id="myCanvas" style="position:relative; border:1px solid #d3d3d3;">
+Your browser does not support the HTML5 canvas tag.</canvas>
+
+<script type="application/javascript">
+//grid width and height
+
+n_cols = 24
+n_rows = 17
+
+var bw = 32*n_cols;
+var bh = 32*n_rows;
+//padding around grid
+var p = 0;
+//size of canvas
+var cw = bw + (p*2) ;
+var ch = bh + (p*2) ;
+
+ 
+
+
+ 
+
+var context = document.getElementById("myCanvas").getContext("2d");
+
+document.getElementById("myCanvas").width = bw;
+document.getElementById("myCanvas").height = bh;
+
+function drawBoard(){
+    for (var x = 0; x <= bw; x += 32) {
+        context.moveTo(0.5 + x + p, p);
+        context.lineTo(0.5 + x + p, bh + p);
+		 
+    }
+
+
+    for (var x = 0; x <= bh; x += 32) {
+        context.moveTo(p, 0.5 + x + p);
+        context.lineTo(bw + p, 0.5 + x + p);
+	
+	 
+		    }
+
+    context.strokeStyle = "black";
+    context.stroke();
+	
+	//grd.addColorStop(0,"black");
+//context.fillStyle=grd;
+
+}
+
+
+
+
+////////////////
+///////
+
+var c=document.getElementById("myCanvas");
+var ctx=context;
+
+
+var img = new Image();
+img.src = "test.png";
+ctx.drawImage(img,0, 0 ,32*n_cols , 32*n_rows);
+//ctx.drawImage(img, 0,0 ,32*28 , 32*17);
+
+ drawBoard();
+
+// Create gradient
+var grd=ctx.createLinearGradient(0,0,200,0);
+grd.addColorStop(0,"black");
+
+
+// Fill with gradient
+ctx.fillStyle=grd;
+ctx.border = 8;
+
+var centerX = (bw)/2   ; 
+var centerY = bh/2 - 16 ; 
+var CAMERA_WIDTH = bw;
+var CAMERA_HEIGHT = bh;
+t343twidth = 32;
+
+grd.addColorStop(0,"black");
+ctx.fillStyle=grd;
+ctx.fillRect(centerX,centerY, 10,10);  // center
+
+
+x = centerX + t343twidth*-2;   
+y = centerY + t343twidth*0;
+ctx.fillRect(x ,y ,32,32); // bomb black
+
+///////bomb target
+for(i=0;i< 1;i++)
+{
+grd.addColorStop(0,"green"); 
+ctx.fillStyle=grd;
+
+ switch(i){
+case 0:
+	x = centerX + t343twidth*0 ;   
+	y = centerY + t343twidth*-7;	
+break;
+case 1:
+	x = centerX + t343twidth*12 ;   
+	y = centerY - t343twidth*2;	
+break;
+case 2:
+	x = centerX - t343twidth*12 ;   
+	y = centerY + t343twidth*1;	
+break;
+case 3:
+	x = centerX + t343twidth*3 ;   
+	y = centerY - t343twidth*8;	
+break;
+ }
+	ctx.fillRect(x ,y ,32,32); // bom target
+
+}////
+
+
+
+///////arrows
+for(i=0;i< 1 ;i++)
+{
+grd.addColorStop(0,"purple"); 
+ctx.fillStyle=grd;
+    switch(i){
+case 0:
+	x = centerX + t343twidth*-2 ;   
+	y = centerY + t343twidth*3;	
+break;
+
+case 1:
+	x = centerX + t343twidth *12;   
+	y = centerY - t343twidth*2;	
+break;
+
+case 2:
+	x = centerX + t343twidth*11 ;   
+	y = centerY - t343twidth*3 ;   
+break;
+
+case 3:
+	x = centerX + t343twidth*13 ;   
+	y = centerY - t343twidth*3;	
+break;
+
+
+case 4:
+	x = centerX - t343twidth*5 ;   
+	y = centerY + t343twidth*5;	
+break;
+
+case 5:
+	x = centerX - t343twidth*5 ;   
+	y = centerY + t343twidth*1;	
+break;
+
+case 6:
+	x = centerX - t343twidth*7 ;   
+	y = centerY + t343twidth*3;	
+break;
+
+case 7:
+	x = centerX - t343twidth*3;   
+	y = centerY + t343twidth*3;
+break;
+
+
+
+}
+ctx.fillRect(x ,y ,32,32); // arrows
+}
+////
+
+
+
+///////teleporter
+for(i=0;i< 2 ;i++)
+{
+grd.addColorStop(0,"blue"); 
+ctx.fillStyle=grd;
+    switch(i){
+case 0:
+x = centerX + t343twidth*5 ;   
+y = centerY + t343twidth*0;
+break;
+
+case 1:
+	x = centerX + t343twidth*-9;   
+	y = centerY + t343twidth*0;
+break;
+            
+}
+ctx.fillRect(x ,y ,32,32); // teleporter
+}
+////
+    
+    
+boxmaker();	
+	
+	
+grd.addColorStop(0,"red");
+ctx.fillStyle=grd;
+
+
+//boxmaker();
+
+for(i=0;i< 0 ;i++) // blocks
+{
+// make sure to scale 
+
+switch(i) {
+	case 0:
+	x = centerX ;   
+	y = centerY + t343twidth*5;
+	break;
+	
+	case 1:
+	x = centerX + t343twidth*1;   
+	y = centerY + t343twidth*7;
+	break;
+	
+	case 2:
+	x = centerX - t343twidth*0;   
+	y = centerY + t343twidth*0;
+	break;
+	
+}
+        
+grd.addColorStop(0,"red");
+ctx.fillStyle=grd;
+ctx.fillRect(x,y,32,32);
+
+grd.addColorStop(0,"black");
+ctx.fillStyle=grd;
+ctx.fillText(i,x+15,y+14); 
+
+}
+
+var array_col=new Array(
+0,2,3,5,6,8,10,11,
+-1,-2,-3,-4,-8,-11,-12,
+-1,-2,-3,-3,-4,-4,-4,-6,-8,-10,
+3,4,7
+);
+
+
+var array_row= new Array(
+0,1,8,5,7,4,3,3,
+6,2,4,0,1,3,5,
+-4,-2,-2,-6,-2,-3,0,-1,-2,-3,
+-8,-1,-5
+);
+
+function test()
+{
+
+	for (c = 0; c< array_col.length ; c++){ // col
+	x = centerX + t343twidth*array_col[c];   
+	y = centerY + t343twidth*array_row[c];
+	
+grd.addColorStop(0,"red");
+ctx.fillStyle=grd;
+ctx.fillRect(x,y,32,32);
+
+grd.addColorStop(0,"black");
+ctx.fillStyle=grd;
+ctx.fillText(c,x+15,y+14);
+
+}}
+test()
+
+
+
+function boxmaker()
+{
+	for (c = 0; c< n_cols; c++){ // col
+
+//if(c == 3 || c == 5|| c == 8 || c == 14 || c == 22 || c == 24 || c == 26  ) continue;
+	
+	grd.addColorStop(0,"yellow");
+ctx.fillStyle=grd;
+//ctx.fillRect(x,y,32,32);
+
+grd.addColorStop(0,"black");
+ctx.fillStyle=grd;
+ctx.fillText(c,x+15,y+14); 
+	
+
+	
+//array_col = new Array(1,2,3,5);
+//for (r = 0; r < array_row.length; r++){ // row
+
+for (r = 0; r< n_rows; r++){ // row
+
+x = centerX + t343twidth *(-c);   
+y = centerY + t343twidth*(-r);
+	//if(r == 3 || r == 5|| r == 8 || r == 14 || r == 22 || r == 24 || r == 26  ) continue;
+	
+	
+	grd.addColorStop(0,"yellow");
+ctx.fillStyle=grd;
+//ctx.fillRect(x,y,32,32);
+
+grd.addColorStop(0,"black");
+ctx.fillStyle=grd;
+ctx.fillText(c,x+15,y+14); 
+ctx.fillText(r,x+15,y+26); 
+
+
+	}// row
+	
+	}// col
+	}
+
+//boxmaker();
+
+
+
+document.onmousedown = OnMouseDown;
+ 
+ 
+function OnMouseDown(e)
+{	
+
+
+// IE is retarded and doesn't pass the event object
+	if (e == null) 
+		e = window.event; 	
+	// for IE, left click == 1
+	// for Firefox, left click == 0
+
+	if ((e.button == 1 && window.event != null || 
+		e.button == 0) 	)
+	{
+	// grab the mouse position
+		_startX = e.clientX;
+		_startY = e.clientY;
+		// tell our code to start moving the element with the mouse
+		var t = Math.ceil((CAMERA_WIDTH/2 - _startX) / 32);
+//alert(t)
+//sarray_col.push(t);
+//array_row.push(c);	
+
+		
+document.onmousemove = OnMouseMove;
+		return false;
+	}
+}
+</script>
+<img id="scream" src="test.png" />
+</body>
+</html>

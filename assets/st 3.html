@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<canvas id="myCanvas" width="800" height="550" style="border:1px solid #d3d3d3;">
+Your browser does not support the HTML5 canvas tag.</canvas>
+
+<script type="application/javascript">
+var c=document.getElementById("myCanvas");
+var ctx=c.getContext("2d");
+
+// Create gradient
+var grd=ctx.createLinearGradient(0,0,200,0);
+grd.addColorStop(0,"black");
+
+
+// Fill with gradient
+ctx.fillStyle=grd;
+
+
+var centerX = 720/2; 
+var centerY = 480/2; 
+var CAMERA_HEIGHT = 720;
+var CAMERA_HEIGHT = 480;
+t343twidth = 32;
+x = 200 ;
+y = CAMERA_HEIGHT / 4;
+
+ctx.fillRect(centerX ,centerY ,32,32); // bomb
+
+///////bomb target
+for(i=0;i< 5 ;i++)
+{
+grd.addColorStop(0,"green");
+
+
+ctx.fillStyle=grd;
+
+    switch(i){
+case 0:
+x = centerX - t343twidth * 5 ;
+y =  centerY;
+break;
+
+case 1:
+x = centerX + t343twidth * 5 ;
+y =  centerY;
+break;
+
+case 3:
+x = centerX  ;
+y =  centerY- t343twidth * 5;
+break;
+
+case 4:
+x = centerX  ;
+y =  centerY+ t343twidth * 5;
+break;
+
+
+}
+ctx.fillRect(x ,y ,32,32); // bom target
+}
+////
+
+
+for(i=0;i< 23 ;i++)
+{
+grd.addColorStop(0,"red");
+
+
+ctx.fillStyle=grd;
+
+    switch(i){
+case 0:
+x = centerX - t343twidth ;
+y =  centerY- t343twidth
+break;
+
+case 1:
+x = centerX - t343twidth ;
+y =  centerY- t343twidth * 2
+break;
+
+case 2:
+x = centerX - t343twidth ;
+y =  centerY- t343twidth * 3
+break;
+
+case 3:
+x = centerX + t343twidth ;
+y =  centerY- t343twidth
+break;
+
+case 4:
+x = centerX + t343twidth ;
+y =  centerY- t343twidth * 2
+break;
+
+case 5:
+x = centerX + t343twidth ;
+y =  centerY- t343twidth * 3
+break;
+
+case 6:
+x = centerX - t343twidth ;
+y =  centerY+ t343twidth
+break;
+
+case 7:
+x = centerX - t343twidth ;
+y =  centerY+ t343twidth * 2
+break;
+
+case 8:
+x = centerX - t343twidth ;
+y =  centerY+ t343twidth * 3
+break;
+
+case 9:
+x = centerX + t343twidth ;
+y =  centerY+ t343twidth
+break;
+
+case 10:
+x = centerX + t343twidth ;
+y =  centerY+ t343twidth * 2
+break;
+
+case 11:
+x = centerX + t343twidth ;
+y =  centerY + t343twidth * 3
+break;
+
+case 12:
+x = centerX - t343twidth * 2 ;
+y =  centerY- t343twidth
+break;
+
+case 13:
+x = centerX - t343twidth * 3 ;
+y =  centerY- t343twidth
+break;
+
+case 14:
+x = centerX + t343twidth * 2 ;
+y =  centerY- t343twidth
+break;
+
+case 15:
+x = centerX + t343twidth * 3 ;
+y =  centerY- t343twidth
+break;
+
+///
+case 16:
+x = centerX - t343twidth * 2 ;
+y =  centerY+ t343twidth
+break;
+
+case 17:
+x = centerX - t343twidth * 3 ;
+y =  centerY+ t343twidth
+break;
+
+case 18:
+x = centerX + t343twidth * 2 ;
+y =  centerY+ t343twidth
+break;
+
+case 19:
+x = centerX + t343twidth * 3 ;
+y =  centerY+ t343twidth
+break;
+
+
+
+
+    }
+
+
+
+ctx.fillRect(x,y,32,32);
+
+}
+
+</script>
+<img src="test.png" />
+</body>
+</html>

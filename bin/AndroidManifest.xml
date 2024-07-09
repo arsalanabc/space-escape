@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.a.spaceescape2"
+    android:versionCode="1"
+    android:versionName="1.0"> 
+    
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="9" 
+        />
+     <uses-permission android:name="android.permission.INTERNET" />
+     <uses-permission android:name="android.permission.WAKE_LOCK"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" 
+        android:debuggable="true"
+        >
+        <activity
+            android:name="com.a.spaceescape2.Menu"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        
+         <activity android:name=".SimpleGame"></activity>
+          <activity android:name=".newgame"></activity>
+           <activity android:name=".rand_color"></activity>
+       <activity android:name=".TouchDragExample" />   
+       <activity android:name=".webpage"></activity>
+         <activity android:name=".sceneMenu"></activity>
+          <activity android:name=".stage_1"></activity>
+           <activity android:name=".stage_2"></activity>
+    </application>
+    
+
+</manifest>
